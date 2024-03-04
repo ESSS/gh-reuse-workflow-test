@@ -1,0 +1,17 @@
+name: deploy
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true  
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:          
+      - name: Deploy
+        run: echo deploying
