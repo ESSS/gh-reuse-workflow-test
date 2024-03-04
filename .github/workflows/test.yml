@@ -17,5 +17,9 @@ jobs:
         run: echo tests
       
   deploy:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-deploy      
+      cancel-in-progress: true  
+      
     uses: ./.github/workflows/deploy.yml
       
