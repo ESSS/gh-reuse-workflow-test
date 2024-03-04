@@ -18,7 +18,7 @@ jobs:
       
   deploy:
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}-deploy      
+      group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: true  
       
     uses: ./.github/workflows/deploy.yml
