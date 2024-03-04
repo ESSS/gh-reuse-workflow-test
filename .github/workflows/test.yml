@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: test-${{ github.ref }}
   cancel-in-progress: true  
 
 jobs:
@@ -17,9 +17,5 @@ jobs:
         run: echo tests
       
   deploy:
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: true  
-      
     uses: ./.github/workflows/deploy.yml
       
