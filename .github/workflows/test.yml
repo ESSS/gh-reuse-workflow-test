@@ -1,0 +1,21 @@
+name: test
+
+on:
+  push:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true  
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:          
+      - name: Run tests
+        run: echo tests
+      
+  deploy:
+    uses: ./.github/workflows/deploy.yml
+      
