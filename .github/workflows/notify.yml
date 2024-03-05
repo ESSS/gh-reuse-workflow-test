@@ -1,0 +1,13 @@
+name: notify
+
+on:
+  workflow_run:
+    workflows: ["deploy", "test"]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print
+        run: echo ${{ github.event.action }} ${{ github.event.sender }} ${{ github.event.workflow.name }} ${{ github.event.workflow_run.name }}
