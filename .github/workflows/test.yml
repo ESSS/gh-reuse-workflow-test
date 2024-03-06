@@ -18,6 +18,8 @@ jobs:
           echo tests
           mkdir foo
           cd foo
+          pwd
+          
       - name: Check cwd
         run: |
           pwd 
