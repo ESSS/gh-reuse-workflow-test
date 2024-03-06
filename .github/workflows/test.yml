@@ -14,7 +14,13 @@ jobs:
 
     steps:          
       - name: Run tests
-        run: echo tests
+        run: |
+          echo tests
+          mkdir foo
+          cd foo
+      - name: Check cwd
+        run: |
+          pwd 
       
   deploy:
     uses: ./.github/workflows/deploy.yml
